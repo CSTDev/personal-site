@@ -89,7 +89,7 @@ const Post = ({ data, pageContext }) => {
         description={
           frontmatter.description ? frontmatter.description : excerpt
         }
-        image={Image.images.fallback.src}
+        image={Image.images?.fallback?.src}
         article={true}
       />
       <article className="blog-post">
