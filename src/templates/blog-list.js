@@ -6,6 +6,7 @@ import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
 import Layout from "../components/layout"
 import PostCard from "../components/post-card"
 import Seo from "../components/seo"
+import TagList from "../components/tag-list"
 
 const styles = {
   pagination: {
@@ -23,7 +24,7 @@ const styles = {
 
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { template: { eq: "blog-post" } } }
       limit: $limit
@@ -44,6 +45,12 @@ export const blogListQuery = graphql`
             }
           }
         }
+      }
+    }
+    tags: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }
@@ -95,9 +102,12 @@ class BlogIndex extends React.Component {
       currentPage - 1 === 1 ? blogSlug : blogSlug + (currentPage - 1).toString()
     const nextPage = blogSlug + (currentPage + 1).toString()
 
-    const posts = data.allMarkdownRemark.edges
+    const posts = data.posts.edges
       .filter(edge => !!edge.node.frontmatter.date)
       .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
+
+    const tags = data.tags.group.map(g => g.fieldValue)
+
     let props = {
       isFirst,
       prevPage,
@@ -117,6 +127,7 @@ class BlogIndex extends React.Component {
           }
         />
         <h1>Blog</h1>
+        <TagList tags={tags} />
         <div className="grids col-1 sm-2 lg-3">{posts}</div>
         <Pagination {...props} />
       </Layout>
