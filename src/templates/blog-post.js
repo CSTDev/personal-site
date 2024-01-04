@@ -6,6 +6,7 @@ import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import TagList from "../components/tag-list"
 
 const styles = {
   "article blockquote": {
@@ -76,6 +77,7 @@ const Post = ({ data, pageContext }) => {
     ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
     : ""
   const { previous, next } = pageContext
+  console.log(frontmatter)
 
   let props = {
     previous,
@@ -113,6 +115,8 @@ const Post = ({ data, pageContext }) => {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <h4>Tags:</h4>
+        <TagList tags={frontmatter.tags ?? []} currentTag={""} />
       </article>
       {(previous || next) && <Pagination {...props} />}
     </Layout>
@@ -132,6 +136,7 @@ export const pageQuery = graphql`
         slug
         title
         description
+        tags
         featuredImage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
