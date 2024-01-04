@@ -6,7 +6,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const blogList = path.resolve(`./src/templates/blog-list.js`)
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
 
   const result = await graphql(`
     {
@@ -27,6 +26,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
+          nodes {
+            id
+          }
         }
       }
     }
@@ -69,17 +71,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Extract tag data from query
   const tags = result.data.tagsGroup.group
 
-  // Make tag pages
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    })
-  })
-
   // Create blog-list pages
   const postsPerPage = 9
   const numPages = Math.ceil(blogPostsCount / postsPerPage)
@@ -94,6 +85,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         numPages,
         currentPage: i + 1,
       },
+    })
+  })
+
+  tags.forEach(tag => {
+    const numPagesForTag = Math.ceil(tag.nodes.length / postsPerPage)
+    Array.from({ length: numPagesForTag }).forEach((thing, i) => {
+      createPage({
+        path:
+          i === 0
+            ? `/tags/${_.kebabCase(tag.fieldValue)}`
+            : `/tags/${_.kebabCase(tag.fieldValue)}/${i + 1}`,
+        component: blogList,
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numPagesForTag,
+          currentPage: i + 1,
+          tag: tag.fieldValue,
+        },
+      })
     })
   })
 }

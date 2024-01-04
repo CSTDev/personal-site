@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import React from "react"
+import { useEffect, useState } from "react"
 import { Link, graphql } from "gatsby"
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
 import Layout from "../components/layout"
@@ -23,10 +23,12 @@ const styles = {
 }
 
 export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query blogListQuery($skip: Int!, $limit: Int!, $tag: String) {
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      filter: {
+        frontmatter: { template: { eq: "blog-post" }, tags: { in: [$tag] } }
+      }
       limit: $limit
       skip: $skip
     ) {
@@ -38,6 +40,7 @@ export const blogListQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             slug
             title
+            tags
             featuredImage {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED, width: 345, height: 260)
@@ -91,48 +94,50 @@ const Pagination = props => (
     </ul>
   </div>
 )
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const { currentPage, numPages } = this.props.pageContext
-    const blogSlug = "/blog/"
-    const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const prevPage =
-      currentPage - 1 === 1 ? blogSlug : blogSlug + (currentPage - 1).toString()
-    const nextPage = blogSlug + (currentPage + 1).toString()
+const BlogIndex = ({ data, pageContext }) => {
+  const { currentPage, numPages, tag } = pageContext
+  const blogSlug = "/blog/"
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage =
+    currentPage - 1 === 1 ? blogSlug : blogSlug + (currentPage - 1).toString()
+  const nextPage = blogSlug + (currentPage + 1).toString()
+  const [posts, setPosts] = useState([])
 
-    const posts = data.posts.edges
-      .filter(edge => !!edge.node.frontmatter.date)
-      .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
-
-    const tags = data.tags.group.map(g => g.fieldValue)
-
-    let props = {
-      isFirst,
-      prevPage,
-      numPages,
-      blogSlug,
-      currentPage,
-      isLast,
-      nextPage,
-    }
-
-    return (
-      <Layout className="blog-page">
-        <Seo
-          title={"Blog — Page " + currentPage + " of " + numPages}
-          description={
-            "Stackrole base blog page " + currentPage + " of " + numPages
-          }
-        />
-        <h1>Blog</h1>
-        <TagList tags={tags} />
-        <div className="grids col-1 sm-2 lg-3">{posts}</div>
-        <Pagination {...props} />
-      </Layout>
+  useEffect(() => {
+    setPosts(
+      data.posts.edges
+        .filter(edge => !!edge.node.frontmatter.date)
+        .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
     )
+  }, [data])
+
+  const tags = data.tags.group.map(g => g.fieldValue)
+
+  let props = {
+    isFirst,
+    prevPage,
+    numPages,
+    blogSlug,
+    currentPage,
+    isLast,
+    nextPage,
   }
+
+  return (
+    <Layout className="blog-page">
+      <Seo
+        title={"Blog — Page " + currentPage + " of " + numPages}
+        description={
+          "Stackrole base blog page " + currentPage + " of " + numPages
+        }
+      />
+      <h1>Blog</h1>
+      <TagList tags={tags} currentTag={tag} />
+      <div className="grids col-1 sm-2 lg-3">{posts}</div>
+      <Pagination {...props} />
+    </Layout>
+  )
 }
 
 export default BlogIndex
