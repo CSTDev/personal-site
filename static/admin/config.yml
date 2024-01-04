@@ -159,7 +159,7 @@ collections:
               - widget: image
                 name: image
                 label: image
-                default: "/assets/stackrole.png"
+                default: "/assets/fairlyusefulcode-logo-transparent.png"
               - widget: image
                 name: iconimage
                 label: favicon

@@ -111,6 +111,7 @@ const HomePage = ({ data }) => {
             className="button"
             sx={{
               variant: "variants.button",
+              backgroundColor: "secondary",
             }}
           >
             {frontmatter.cta.ctaText}

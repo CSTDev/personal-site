@@ -16,7 +16,7 @@ const TagList = props => {
             variant: "variants.button",
             backgroundColor:
               props.currentTag === t
-                ? "var(--theme-ui-colors-primary)"
+                ? "var(--theme-ui-colors-secondary)"
                 : "var(--theme-ui-colors-siteColor)",
           }}
           key={t}
