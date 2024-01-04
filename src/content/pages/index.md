@@ -1,7 +1,7 @@
 ---
 template: index-page
 slug: /
-title: Carl Taylor
+title: Solving Problems By Building Better Software
 tagline: ""
 featuredImage: /assets/francesco-califano-xSJ1HlZRLf0-unsplash.jpg
 cta:
@@ -9,4 +9,4 @@ cta:
   ctaLink: /about
 ---
 
-Main selling point, man...
+I build software, help teams work more effectively through processes, tools and mentoring. As well as tinker with tech and ramble wildly.

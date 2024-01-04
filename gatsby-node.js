@@ -6,6 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const blogList = path.resolve(`./src/templates/blog-list.js`)
+  const fullBlogList = path.resolve(`./src/templates/full-blog-list.js`)
 
   const result = await graphql(`
     {
@@ -78,7 +79,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: blogList,
+      component: fullBlogList,
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
