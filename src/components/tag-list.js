@@ -8,6 +8,7 @@ import kebabCase from "lodash/kebabCase"
 const TagList = props => {
   return (
     <div>
+      {props.title && <p className="sub-heading">{props.title}</p>}
       {props.tags.map(t => (
         <div
           className="tag-chip"

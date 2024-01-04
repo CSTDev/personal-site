@@ -81,6 +81,13 @@ module.exports = {
               escapeEntities: {},
             },
           },
+          {
+            resolve: `gatsby-remark-emojis`,
+            options: {
+              active: true,
+              size: 32,
+            },
+          },
         ],
       },
     },
@@ -98,8 +105,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `CSTDev`,
-        short_name: `CSTDev`,
+        name: `FairlyUsefulCode`,
+        short_name: `FairlyUsefulCode`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,

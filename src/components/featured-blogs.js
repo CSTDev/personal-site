@@ -10,6 +10,9 @@ export default function FeaturedBlogs(props) {
   const posts = data.edges
     .filter(edge => !!edge.node.frontmatter.date)
     .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
+  if (posts.length === 0) {
+    return <div></div>
+  }
   return <PostMaker data={posts} />
 }
 

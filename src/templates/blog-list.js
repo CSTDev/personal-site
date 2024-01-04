@@ -133,7 +133,7 @@ const BlogIndex = ({ data, pageContext }) => {
         }
       />
       <h1>Blog</h1>
-      <TagList tags={tags} currentTag={tag} />
+      <TagList tags={tags} currentTag={tag} title="Search blogs by topics:" />
       <div className="grids col-1 sm-2 lg-3">{posts}</div>
       <Pagination {...props} />
     </Layout>

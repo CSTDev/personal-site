@@ -4,7 +4,7 @@ title: Connect to Kubernetes Service in a Different Namespace
 slug: /connect-to-kubernetes-service-in-a-different-namespace
 date: 2019-10-25 12:46
 description: Connect to Kubernetes Service in a Different Namespace
-featuredImage: /assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg
+featuredImage: /assets/growtika-ZfVyuV8l7WU-unsplash.jpg
 featured: false
 tags:
   - kubernetes
