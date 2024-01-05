@@ -28,7 +28,7 @@ Simple enough, but to make sure that we don't add the trailing new line use:
 echo -n "<my string> | base64
 ```
 
-That often solves my problem of invalid credentials, and I spend far too long remembering that new lines are the problem. **However**, it seems that not all versions of echo are the same! Sometimes the above may not work, and alternative is to use _printf_ which is supposedly more consistent, the same command then applied:
+That often solves my problem of invalid credentials, and I spend far too long remembering that new lines are the problem. **However**, it seems that not all versions of echo are the same! Sometimes the above may not work, and an alternative is to use _printf_ which is supposedly more consistent, the same command is then applied:
 
 ```
 printf <my string> | base64

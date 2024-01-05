@@ -10,13 +10,13 @@ tags:
   - kubernetes
 ---
 
-Sometimes you need to access a service in a namespace from a different one. For example I've got and instance of Elasticsearch running in my monitoring namespace and want to send data to it from pods running in my application namespace.
+Sometimes you need to access a service in a namespace from a different one. For example, I've got an instance of Elasticsearch running in my monitoring namespace and want to send data to it from pods running in my application namespace.
 
 <!--more-->
 
 You can reference it using its DNS name in a service in the namespace that it isn't running in.
 
-For this example Elasticsearch is running in my monitoring namespace and a new service needs to be created in the application namespace to reference it, add the following service:
+For this example, Elasticsearch is running in my monitoring namespace and a new service needs to be created in the application namespace to reference it, add the following service:
 
 ```
 #Used to get access to elasticsearch when it's running in a namespace other than monitoring

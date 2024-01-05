@@ -1,7 +1,7 @@
 ---
 template: blog-post
 title: Delete Kubernetes resources based on age
-slug: /delete-kubernetes-resources-after-preiod
+slug: /delete-kubernetes-resources-after-period
 date: 2019-12-20 12:46
 description: Connect to Kubernetes Service in a Different Namespace
 featuredImage: /assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg
@@ -11,13 +11,13 @@ tags:
   - tekton
 ---
 
-Lately I've been playing with [Tekton](https://github.com/tektoncd/pipeline) to try and build a CI pipeline. It has a concept of a Pipeline that contains ordering of Tasks that should be run. In order to actually run a pipeline there's an aptly named resource called PipelineRun. Once this is complete it sits around on the Kubernetes cluster which is helpful when you need to see logs, but eventually you need to clean this up. This can also be used to delete pods based on age, or any other resource that has the creationTimestamp metadata (potentially all of them?)
+Lately, I've been playing with [Tekton](https://github.com/tektoncd/pipeline) to try and build a CI pipeline. It has a concept of a Pipeline that contains the ordering of Tasks that should be run. To run a pipeline there's an aptly named resource called PipelineRun. Once this is complete it sits around on the Kubernetes cluster which is helpful when you need to see logs, but eventually, you need to clean this up. This can also be used to delete pods based on age, or any other resource that has the creationTimestamp metadata (potentially all of them?)
 
 <!--more-->
 
 The simplest way I thought this could be done was to delete the PipelineRun after a certain duration.
 
-Note: If you're running on alpine linux it has a different version of the "date" utility than some fatter distros, so you'll either need to install that version, or use this slightly more complicated date command to get the date you need.
+Note: If you're running on Alpine Linux it has a different version of the "date" utility than some fatter distros, so you'll either need to install that version or use this slightly more complicated date command to get the date you need.
 
 ### Command
 
@@ -33,7 +33,7 @@ You can change this to be older or more recent by changing the "86400" value. Th
 
 ##### Get Resource
 
-The first part get the PipelineRun (or another resource's) name and creation time:
+The first part gets the PipelineRun (or another resource's) name and creation time:
 
 ```
 kubectl get pipelineruns -o go-template --template '{{range .items}}{{.metadata.name}} {{.metadata.creationTimestamp}}{{"\n"}}{{end}}'
@@ -49,11 +49,11 @@ build-pipeline-run-6sn69 2019-12-19T09:54:50Z
 
 ##### Date comparison
 
-Finds the timestamp in the output lines above (the $2 in the command below).
-Gets the current date and takes off a number of seconds
+Find the timestamp in the output lines above (the $2 in the command below).
+Gets the current date and takes off the seconds
 Format it as YYYY-mm-dd
 Compare it to the timestamp of the resource
-If the resources timestamp is before the given date, print the resource name
+If the resource timestamp is before the given date, print the resource name
 
 ```
 awk -v date="$(date -d "@$(($(date +%s) - 86400))" +%Y-%m-%d)" '$2 < date {print $1}'
@@ -61,7 +61,7 @@ awk -v date="$(date -d "@$(($(date +%s) - 86400))" +%Y-%m-%d)" '$2 < date {print
 
 ##### Delete Resource
 
-Finally pass all the matching resource names into the kubectl delete command:
+Finally, pass all the matching resource names into the kubectl delete command:
 
 ```
 xargs --no-run-if-empty kubectl delete pipelinerun
@@ -69,7 +69,7 @@ xargs --no-run-if-empty kubectl delete pipelinerun
 
 ### CronJob
 
-The last thing to do is to set this up to run regularly, fortunately Kubernetes provides us with CronJobs to run tasks on a schedule.
+The last thing to do is to set this up to run regularly, fortunately, Kubernetes provides us with CronJobs to run tasks on a schedule.
 
 ```
 ---
