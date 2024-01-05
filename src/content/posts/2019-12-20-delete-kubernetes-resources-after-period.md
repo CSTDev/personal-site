@@ -49,11 +49,13 @@ build-pipeline-run-6sn69 2019-12-19T09:54:50Z
 
 ##### Date comparison
 
-Find the timestamp in the output lines above (the $2 in the command below).
-Gets the current date and takes off the seconds
-Format it as YYYY-mm-dd
-Compare it to the timestamp of the resource
-If the resource timestamp is before the given date, print the resource name
+Next it:
+
+- Finds the timestamp in the output lines above (the $2 in the command below).
+- Gets the current date and takes off the seconds
+- Formats it as YYYY-mm-dd
+- Compares it to the timestamp of the resource
+  If the resource timestamp is before the given date, print the resource name
 
 ```
 awk -v date="$(date -d "@$(($(date +%s) - 86400))" +%Y-%m-%d)" '$2 < date {print $1}'

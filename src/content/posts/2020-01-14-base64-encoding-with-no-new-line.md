@@ -8,6 +8,7 @@ featuredImage: /assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg
 featured: false
 tags:
   - bash
+  - quick-note
 ---
 
 Occasionally when I create secrets in Kubernetes I'll get told that the credentials or values I've entered are wrong. I dig through and find everything looks OK, print out the base64 encoded secret, decode it and everything still looks OK!

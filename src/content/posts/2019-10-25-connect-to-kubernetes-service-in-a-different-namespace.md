@@ -8,6 +8,7 @@ featuredImage: /assets/growtika-ZfVyuV8l7WU-unsplash.jpg
 featured: false
 tags:
   - kubernetes
+  - quick-note
 ---
 
 Sometimes you need to access a service in a namespace from a different one. For example, I've got an instance of Elasticsearch running in my monitoring namespace and want to send data to it from pods running in my application namespace.
