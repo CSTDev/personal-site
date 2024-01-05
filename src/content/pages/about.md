@@ -8,7 +8,7 @@ title: About Me
 
 #### What I Do For Work
 
-I work with people to identify and discern business problems that are holding them back and help devise, design, and build software solutions using modern tech stacks. That doesn't just mean building new things! I've helped organisations refactor and improve existing systems to run on the cloud or in Kubernetes reducing costs and enabling scaling to meet their latest demands.
+I work with people to identify and discern business problems that are holding them back and help devise, design, and build software solutions using modern tech stacks. That doesn't just mean building new things! I've helped organisations refactor and improve existing systems to run on the cloud or in Kubernetes reducing costs and enabling scaling to meet their latest demands. I'm a keen advocate for doing DevOps the right way and Cloud Native solutions.
 
 A lot of my recent work has been around data processing, taking huge quantities of data, extracting and enriching meaningful parts, and exporting it to users for further analysis.
 
