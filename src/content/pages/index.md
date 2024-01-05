@@ -9,4 +9,4 @@ cta:
   ctaLink: /about
 ---
 
-I build software, help teams work more effectively through processes, tools and mentoring. As well as tinker with tech and ramble wildly.
+I build software and help people work more effectively through processes, tools, and mentoring. As well as tinker with tech and ramble wildly.
