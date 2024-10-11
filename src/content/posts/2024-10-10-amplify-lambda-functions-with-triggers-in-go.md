@@ -12,7 +12,7 @@ tags:
   - Go
 ---
 
-NodeJS functions in Amplify are easy; Node is the default that is used whenever you create a function for things like Cognito or DynamoDB triggers. 
+NodeJS functions in Amplify are straightforward; Node is the default that is used whenever you create a function for things like Cognito or DynamoDB triggers. 
 
 To get a function in Go, you can either create a function with `amplify add function` and select Go and then alter the template to add any triggers, IAM rules or connections but it’s quite involved. It’s easier to create the Node version of the function and update that to change it to Go.
 
@@ -28,13 +28,13 @@ Make the following changes within the function directory `amplify/backend/functi
 
 1. Update the template json file usually named `<function name>-cloudformation-template.json` replacing:
 
-    1. `Resources.Properties.Handler` : `index.handler` → **`bootstrap`** 
-    2. `Resources.Properties.Runtime` : `nodejs18.x` → `provided.al2023`
-2. Create the go module project:
-    1. Change into the src directory `cd src`
-    2. Initialise the module `go mod init lambda`
-    3. Create the `main.go` file
-    4. Create the handler. The important bits below are the `main` function calling `lambda.Start(handler)`, see AWS documentation on Go Lambdas for what the handler can look like. This example is for triggering off a Cognito sign up to customise the messages:
+    - `Resources.Properties.Handler` : `index.handler` → **`bootstrap`** 
+    - `Resources.Properties.Runtime` : `nodejs18.x` → `provided.al2023`
+2. Create the Go files:
+    - Change into the src directory `cd src`
+    - Initialise the module `go mod init lambda`
+    - Create the `main.go` file
+    - Create the handler. The important bits below are the `main` function calling `lambda.Start(handler)`, see AWS documentation on Go Lambdas for what the handler can look like. This example is for triggering off a Cognito sign up to customise the messages:
         
         ```go
         package main
@@ -74,13 +74,13 @@ Make the following changes within the function directory `amplify/backend/functi
         
         ```
         
-    5. Install dependencies `go mod tidy`
-    6. Remove the javascript files
-        1. `src/node_modules`
-        2. `src/custom.js`  
-        3. `src/index.js` 
-        4. `src/package.json` 
-        5. `yarn.lock` 
+    - Install dependencies `go mod tidy`
+    - Remove the javascript files
+        - `src/node_modules`
+        - `src/custom.js`  
+        - `src/index.js` 
+        - `src/package.json` 
+        - `yarn.lock` 
 3. Update the `amplify.state` file, this lives in the root of the function directory. Set the contents to be the following: 
     
     ```go
@@ -91,21 +91,14 @@ Make the following changes within the function directory `amplify/backend/functi
       "defaultEditorFile": "src/main.go"
     }
     ```
-    
 
-<aside>
-💡
-
-This file may be hidden in your IDE.
-
-For VSCode: 
-
-Edit `.vscode/settings.json` and remove the line `"amplify/**/amplify.state": true` 
-
-</aside>
+>💡 This file may be hidden in your IDE.  
+>  For VSCode:  
+> Edit `.vscode/settings.json` and remove the line `"amplify/**/amplify.state": true` 
 
 ## Deploy Changes
 
-Finally you can push the new function with the usual `amplify push`  
+Finally, you can push the new function with the usual  
+`amplify push`  
 
-This will now re-create your function and it’ll run using Go!
+This will now re-create your function and it’ll be using Go!
