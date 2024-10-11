@@ -7,6 +7,7 @@ description: How to use Go with Amplify to create Lambda functions with triggers
 featuredImage: /assets/michael-DXQB5D1njMY-unsplash.jpg
 featured: false
 tags:
+  - AWS
   - Amplify
   - Lambda
   - Go
