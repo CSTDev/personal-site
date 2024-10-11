@@ -57,7 +57,7 @@ The rest of this guide makes the assumptions that you have the following:
     ```
     
 2. Ensure you’re logged in to the `oc` and `aws` clis.
-3. Create the role using the `[ccoctl](https://github.com/openshift/cloud-credential-operator/blob/master/docs/ccoctl.md)` tool 
+3. Create the role using the [ccoctl](https://github.com/openshift/cloud-credential-operator/blob/master/docs/ccoctl.md) tool 
     
     ```bash
     ccoctl aws create-iam-roles \
