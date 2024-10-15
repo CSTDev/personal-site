@@ -1,64 +1,29 @@
-> **Update** Foundation is now built with Gatsby V4, this include many performance update
+[![Netlify Status](https://api.netlify.com/api/v1/badges/63521b78-612e-4a2f-a409-3fa8009e7f3b/deploy-status)](https://app.netlify.com/sites/frosty-perlman-9da1cb/deploys) 
 
----
+# Fairly Useful Code
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/63521b78-612e-4a2f-a409-3fa8009e7f3b/deploy-status)](https://app.netlify.com/sites/frosty-perlman-9da1cb/deploys) &nbsp;<a href="https://twitter.com/intent/follow?screen_name=stackrole">
-<img src="https://img.shields.io/twitter/follow/stackrole.svg?label=Follow%20@Stackrole" alt="Follow @stackrole" />
-</a>
+A personal website and blog.
 
-# Foundation
+Built with [Gatsby][gatsby] and [Netlify CMS][netlifycms].
 
-A starter to launch your blazing fast personal website and a blog, Built with [Gatsby][gatsby] and [Netlify CMS][netlifycms].
+## Start developing
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stackrole/gatsby-starter-foundation)
+Navigate into your new site’s directory and start it up.
 
-Need help launching your website? My DM's are open on <a href="https://twitter.com/stackrole">twitter</a>
+```shell
+cd my-hello-world-starter/
+gatsby develop
+```
 
-[![Gatsby Starter Foundation Screenshot](static/assets/gatsby-starter-foundation-light-mode.jpg)](https://foundation.stackrole.com)
+**Open the source code and start editing!**
 
-## 👌 Features
+Your site is now running at `http://localhost:8000`!
 
-- A Blog and Personal website with Netlify CMS.
-- Responsive Web Design
-- Dark / Light Mode
-- Customize theme color from CMS
+_Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    ![gatsby-starter-foundation-dark-mode.jpg](https://media.giphy.com/media/Pb4yImVfcF6MDYuuGm/giphy.gif)
+Open the `gatsby-starter-foundation` directory in your code editor of choice and edit. Save your changes and the browser will update in real time!
 
-- Search bar
-- Customize content of Homepage, About and Contact page.
-- Customize content of Homepage, About and Contact page.
-- Add / Modify / Delete blog posts.
-- Edit website settings, Add Google Analytics and make it your own all with in the CMS.
-- SEO Optimized
-- Social media icons
-- OpenGraph structured data
-- Twitter Cards meta
-- Beautiful XML Sitemaps
-- Netlify Contact Form, Works right out of the box after deployment.
-- Invite collaborators into Netlify CMS, without giving access to your Github account via Git Gateway
-- Gatsby Incremental Builds with Netlify.
-
-[![Gatsby Starter Foundation Screenshot](static/assets/gatsby-starter-foundation-dark-mode.jpg)](https://foundation.stackrole.com)
-
-## 🚀 Quick Deploy
-
-Just click on the **Deploy to Netlify** button.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stackrole/gatsby-starter-foundation)
-
-This would fork `gatsby-starter-foundation` to your Github account and start building your website on [Netlify](https://netlify.com). Once the deployment is done. Your website will be live and website address would look like **site-name.netlify.app**
-
-### Further Instructions
-
-- [Access to Netlify CMS](#access-to-netlify-cms)
-- [Editing content and Adding posts](#editing-content-and-adding-posts)
-- [Customing Site details](#customing-site-details)
-- [Adding Custom domain to netlify website](#adding-custom-domain-to-netlify-website)
-- [Install Locally](#install-locally)
-- [Folder Structure](#folder-structure)
-- [Learning Gatsby](#learning-gatsby)
-- [Thank you from Stackrole](#thank-you)
+You can use Netlify CMS in you local just run `npx netlify-cms-proxy-server` and start run `gatsby develop`
 
 ## ⚙ Access to Netlify CMS
 
@@ -81,36 +46,7 @@ You can find all the website settings such website Site title, Website URL, Goog
 
 ## 🌐 Adding Custom domain to netlify website
 
-We have written a short article on [Custom domain with Netlify website](custom-domain)
-
-## 🖥 Install Locally
-
-Use the Gatsby CLI to create a new site, specifying the `gatsby-starter-foundation` starter.
-
-```bash
-gatsby new gatsby-starter-foundation https://github.com/stackrole/gatsby-starter-foundation
-```
-
-> You need Node and Gatsby-CLI installed, check out Gatsby [Setup Instructions](https://www.gatsbyjs.org/tutorial/part-zero/)
-
-### Start developing
-
-Navigate into your new site’s directory and start it up.
-
-```shell
-cd my-hello-world-starter/
-gatsby develop
-```
-
-**Open the source code and start editing!**
-
-Your site is now running at `http://localhost:8000`!
-
-_Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-Open the `gatsby-starter-foundation` directory in your code editor of choice and edit. Save your changes and the browser will update in real time!
-
-You can use Netlify CMS in you local just run `npx netlify-cms-proxy-server` and start run `gatsby develop`
+There is a short article on [Custom domain with Netlify website](custom-domain)
 
 ## 📁 Folder Structure
 
@@ -159,15 +95,26 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-## 🙏 Thank you
+## Deploying to Netlify
 
-We really appreciate you taking time to build your website with our `gatsby-starter-foundation`.
+TODO: How to deploy
 
-I would love to get your feedback and contributions.
+## Foundation Gatsby Starter
 
-Feel free to ping [@stackrole](stackrole) for help regarding your JAMstack website, our DM's are open. And do not forget to share you website with me 😊
+This site makes use of the [Foundation Starter](https://github.com/stackrole/gatsby-starter-foundation)
 
-[![Check out Stackrole.com - A Jamstack marketplace](static/assets/twitter-header.jpg)](https://stackrole.com)
+A starter to launch your blazing fast personal website and a blog, 
+
+### Further Instructions
+
+- [Access to Netlify CMS](#access-to-netlify-cms)
+- [Editing content and Adding posts](#editing-content-and-adding-posts)
+- [Customing Site details](#customing-site-details)
+- [Adding Custom domain to netlify website](#adding-custom-domain-to-netlify-website)
+- [Install Locally](#install-locally)
+- [Folder Structure](#folder-structure)
+- [Learning Gatsby](#learning-gatsby)
+- [Thank you from Stackrole](#thank-you)
 
 [gatsby]: https://gatsbyjs.org
 [netlifycms]: https://www.netlifycms.org
