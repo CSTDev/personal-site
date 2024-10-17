@@ -97,7 +97,9 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## Deploying to Netlify
 
-TODO: How to deploy
+Netlify automatically builds and deploys a new version of the site whenever changes are made to the project in Git.
+
+For the original setup of a site on Netlify see this guide: [A Step by Step Guide to Deploying on Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
 
 ## Foundation Gatsby Starter
 
