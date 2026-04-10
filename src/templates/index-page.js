@@ -29,7 +29,7 @@ export const pageQuery = graphql`
       }
     }
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { template: { eq: "blog-post" }, featured: { eq: false } }
       }
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
       }
     }
     featuredPosts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { template: { eq: "blog-post" }, featured: { eq: true } }
       }
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
 `
 
 const HomePage = ({ data }) => {
-  const { markdownRemark, posts, featuredPosts } = data // data.markdownRemark holds your post data
+  const { markdownRemark, posts, featuredPosts } = data
   const { frontmatter, html } = markdownRemark
   const Image = frontmatter.featuredImage
     ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
@@ -90,7 +90,6 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo />
       <div className="home-banner grids col-1 sm-2">
         <div>
           <h1 className="title">{frontmatter.title}</h1>
@@ -139,3 +138,7 @@ const HomePage = ({ data }) => {
 }
 
 export default HomePage
+
+export function Head({ location }) {
+  return <Seo location={location} />
+}

@@ -70,8 +70,8 @@ const Pagination = props => (
 )
 
 const Post = ({ data, pageContext }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html, excerpt } = markdownRemark
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
   const Image = frontmatter.featuredImage
     ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
     : ""
@@ -84,14 +84,6 @@ const Post = ({ data, pageContext }) => {
 
   return (
     <Layout className="page">
-      <Seo
-        title={frontmatter.title}
-        description={
-          frontmatter.description ? frontmatter.description : excerpt
-        }
-        image={Image.images?.fallback?.src}
-        article={true}
-      />
       <article className="blog-post">
         <header className="featured-banner">
           <section className="article-header">
@@ -122,6 +114,22 @@ const Post = ({ data, pageContext }) => {
 }
 
 export default Post
+
+export function Head({ location, data }) {
+  const { frontmatter, excerpt } = data.markdownRemark
+  const Image = frontmatter.featuredImage
+    ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
+    : null
+  return (
+    <Seo
+      title={frontmatter.title}
+      description={frontmatter.description ? frontmatter.description : excerpt}
+      image={Image?.images?.fallback?.src}
+      article={true}
+      location={location}
+    />
+  )
+}
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String!) {

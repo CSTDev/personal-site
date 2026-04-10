@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
-import BlogIndex from "./blog-list"
+import BlogIndex, { Head as BlogListHead } from "./blog-list"
 
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { template: { eq: "blog-post" } } }
       limit: $limit
       skip: $skip
@@ -30,7 +30,7 @@ export const blogListQuery = graphql`
       }
     }
     tags: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -43,3 +43,7 @@ const FullBlogIndex = props => {
 }
 
 export default FullBlogIndex
+
+export function Head(props) {
+  return <BlogListHead {...props} />
+}

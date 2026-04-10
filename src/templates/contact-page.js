@@ -25,15 +25,11 @@ export const pageQuery = graphql`
 `
 
 const Contact = ({ data }) => {
-  const { markdownRemark, site } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
 
   return (
     <Layout className="contact-page" sx={contactStyles.contactPage}>
-      <Seo
-        title={frontmatter.title}
-        description={frontmatter.title + " " + site.siteMetadata.title}
-      />
       <div className="wrapper">
         <h1>{frontmatter.title}</h1>
         <div
@@ -93,6 +89,18 @@ const Contact = ({ data }) => {
 }
 
 export default Contact
+
+export function Head({ location, data }) {
+  const { markdownRemark, site } = data
+  const { frontmatter } = markdownRemark
+  return (
+    <Seo
+      title={frontmatter.title}
+      description={frontmatter.title + " " + site.siteMetadata.title}
+      location={location}
+    />
+  )
+}
 
 const contactStyles = {
   contactPage: {

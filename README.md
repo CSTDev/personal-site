@@ -40,6 +40,33 @@ Once you are in your Netlify CMS, you can navigate to Posts and Pages. Here you 
 
 You can select any existing post or page to start editing or add a **New Post**. Have fun :)
 
+## ✍️ Adding a new blog post manually
+
+Blog posts live in `src/content/posts/` as Markdown files. To add a new post:
+
+1. Create a new file named using the format `YYYY-MM-DD-your-post-slug.md`.
+2. Add the following frontmatter at the top of the file:
+
+```markdown
+---
+template: blog-post
+title: Your Post Title
+slug: /your-post-slug
+date: YYYY-MM-DD HH:MM
+description: A short description of the post.
+featuredImage: /assets/your-image.jpg
+featured: false
+tags:
+  - Tag1
+  - Tag2
+---
+```
+
+3. Write your post content in Markdown below the frontmatter.
+4. If you have a featured image, place it in `static/assets/`.
+
+The post will appear on the site automatically once the site is built.
+
 ## ⚙ Customing Site details
 
 You can find all the website settings such website Site title, Website URL, Google anlaytics etc,.. in your Netlify CMS `Admin > Settings > General`

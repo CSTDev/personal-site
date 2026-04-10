@@ -17,12 +17,11 @@ export const pageQuery = graphql`
   }
 `
 const AboutPage = ({ data }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html, excerpt } = markdownRemark
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
 
   return (
     <Layout className="page">
-      <Seo title={frontmatter.title} description={excerpt} />
       <div className="wrapper">
         <h1>{frontmatter.title}</h1>
         <article dangerouslySetInnerHTML={{ __html: html }} />
@@ -32,3 +31,8 @@ const AboutPage = ({ data }) => {
 }
 
 export default AboutPage
+
+export function Head({ location, data }) {
+  const { frontmatter, excerpt } = data.markdownRemark
+  return <Seo title={frontmatter.title} description={excerpt} location={location} />
+}

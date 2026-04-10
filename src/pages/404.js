@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 
 const NotFound = () => (
   <Layout className="not-found-page">
-    <Seo title="Page not found" />
     <div
       className="wrapper"
       style={{
@@ -39,3 +38,7 @@ const NotFound = () => (
 )
 
 export default NotFound
+
+export function Head({ location }) {
+  return <Seo title="Page not found" location={location} />
+}

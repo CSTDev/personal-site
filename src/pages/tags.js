@@ -5,7 +5,6 @@ import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 
 // Components
-import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
 
 const TagsPage = ({
@@ -17,7 +16,6 @@ const TagsPage = ({
   },
 }) => (
   <div>
-    <Helmet title={title} />
     <div>
       <h1>Tags</h1>
       <ul>
@@ -53,6 +51,10 @@ TagsPage.propTypes = {
 
 export default TagsPage
 
+export function Head({ data }) {
+  return <title>{data.site.siteMetadata.title}</title>
+}
+
 export const pageQuery = graphql`
   query {
     site {
@@ -61,7 +63,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

@@ -25,7 +25,7 @@ const styles = {
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!, $tag: String) {
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { template: { eq: "blog-post" }, tags: { in: [$tag] } }
       }
@@ -51,7 +51,7 @@ export const blogListQuery = graphql`
       }
     }
     tags: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -126,12 +126,6 @@ const BlogIndex = ({ data, pageContext }) => {
 
   return (
     <Layout className="blog-page">
-      <Seo
-        title={"Blog — Page " + currentPage + " of " + numPages}
-        description={
-          "Stackrole base blog page " + currentPage + " of " + numPages
-        }
-      />
       <h1>Blog</h1>
       <TagList tags={tags} currentTag={tag} title="Search blogs by topics:" />
       <div className="grids col-1 sm-2 lg-3">{posts}</div>
@@ -141,3 +135,16 @@ const BlogIndex = ({ data, pageContext }) => {
 }
 
 export default BlogIndex
+
+export function Head({ location, pageContext }) {
+  const { currentPage, numPages } = pageContext
+  return (
+    <Seo
+      title={"Blog — Page " + currentPage + " of " + numPages}
+      description={
+        "Stackrole base blog page " + currentPage + " of " + numPages
+      }
+      location={location}
+    />
+  )
+}
