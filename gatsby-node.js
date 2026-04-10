@@ -110,6 +110,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions
+  createTypes([
+    schema.buildObjectType({
+      name: "MarkdownRemarkFrontmatter",
+      fields: {
+        featuredImage: {
+          type: "File",
+          resolve: (source, args, context) => {
+            if (!source.featuredImage) return null
+            const relativePath = source.featuredImage.replace(/^\/assets\//, "")
+            return context.nodeModel.findOne({
+              type: "File",
+              query: { filter: { relativePath: { eq: relativePath } } },
+            })
+          },
+        },
+      },
+    }),
+  ])
+}
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
