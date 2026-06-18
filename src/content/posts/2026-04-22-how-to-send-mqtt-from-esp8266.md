@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: How to send to a HiveMQ from an ESP8266
+title: How to send MQTT messages to HiveMQ from an ESP8266
 slug: /how-to-send-mqtt-esp8266
 date: 2026-04-22 10:00
 description: How to send MQTT messages from an ESP8266 to HiveMQ cloud broker
@@ -84,19 +84,13 @@ The original instructions HiveMQ provides for using an ESP8266 [are here](https:
 4. Upload certificates - in order to connect to HiveMQ you need to use TLS and therefore need to  have the certificates to trust.
     1. Get the `certs-from-mozilla.py` script from [this repository](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/BearSSL_CertStore/certs-from-mozilla.py) to create a `certs.ar` file which has the required certificates.
         
-      >
-      > <img src="https://www.notion.so/icons/report_yellow.svg" alt="https://www.notion.so/icons/report_yellow.svg" width="40px" />
-        
-      >  I found the script needs a program called `ar.exe` this can be found (on windows) under `c:\Users\XXX\AppData\Local\Arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.0.4-gcc10.3-1757bed\xtensa-lx106-elf\bin\XXXX-ar.exe` copy it to the same directory as the `certs-from-mozilla.py` script if it’s not on your path
-      >
-        
-    2. Copy the [`certs.ar`](http://certs.ar) file to a sub directory called `data` within the directory that your sketch lives in.
+      > I found the script needs a program called `ar.exe` this can be found (on windows) under `c:\Users\XXX\AppData\Local\Arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.0.4-gcc10.3-1757bed\xtensa-lx106-elf\bin\XXXX-ar.exe` copy it to the same directory as the `certs-from-mozilla.py` script if it’s not on your path
+
+    2. Copy the `certs.ar` file to a sub directory called `data` within the directory that your sketch lives in.
     3. Upload it by going in Arduino IDE to `Tools -> ESP8266 LittleFS Data Upload` 
     
 
->    <img src="https://www.notion.so/icons/report_yellow.svg" alt="https://www.notion.so/icons/report_yellow.svg" width="40px" />
->    
->    You may have to change Flash size (under Tools → Flash Size) to 4MB
+> You may have to change Flash size (under Tools → Flash Size) to 4MB
     
 >    If ` ESP8266 LittleFS Data Upload` is not under tools you can run it from the command pallete: `[Ctrl]` + `[Shift]` + `[P]`, then "`Upload LittleFS to Pico/ESP8266`".
     
