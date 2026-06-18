@@ -33,6 +33,8 @@ To authenticate you’ll use a token associated with your Grafana Cloud instance
 
 The config for the OTel collector should be:
 
+Update `soilconsumer:2112` to match your own exporter's hostname and port.
+
 ```yaml
 ---
 receivers:
