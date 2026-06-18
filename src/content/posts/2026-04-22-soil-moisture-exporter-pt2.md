@@ -12,7 +12,7 @@ tags:
   - build-narrative
 ---
 
-This covers how I set up a system to monitor my house plants and let me know when they need watering. Part 1 covering the hardware setup can be found here: [Monitoring house plants for when they need watering](../soil-moisture-exporter), here I'll go through making use of the readings and sending alerts when a plant needs watering.
+This is a build write-up, it covers how I process the sensor readings, visualise them in Grafana, and get alerted when a plant needs watering. Part 1 covering the hardware setup can be found here: [Monitoring house plants for when they need watering](../soil-moisture-exporter), here I'll go through making use of the readings and sending alerts when a plant needs watering.
 
 Now we’ve got the sensor up and running, taking readings on a regular basis and sending those to a message queue the next step is to receive those messages and do something about them.
 
@@ -99,11 +99,7 @@ The dashboard is available in the Github repository, so you can just go to Dashb
 
 ### Alerts
 
-Alerts are setup based on the panels we have in the dashboard. You can set them up separately but the easiest way is to just create it from the panel, go to the three dots on the panel → More → New Alert rule
-
-This pre-populates the rule with a name (matching the panel) and the query. 
-
-I have four alerts:
+Alerts are created per panel rather than from a blank rule, which pre-fills the query for you. See Grafana's [alerting docs](https://grafana.com/docs/grafana/latest/alerting/) for how to go about creating them from the panel. I have four:
 
 - Component Liveness - alert when we lose a sensor or the exporter (two alerts)
 - Soil Moisture - A base alert that regardless of the threshold fires when the soil moisture reading is less than this level
@@ -116,5 +112,7 @@ The last thing to do is to set up a *Contact Point* which allows us to receive n
 Once you’ve got one of them set up then you can go back to the alerts we configured earlier and set the Contact Point to this email one. Now whenever one fires due to the reading being too low or the sensor or exporter not being available you’ll get a notification to email or slack.
 
 Give it all a go! Put the moisture sensor in a house plant and ensure the ESP8266 is powered, you'll soon see readings start coming in to the Grafana dashboard (it'll take a while if you've got the deep sleep to wake it every 30 minutes mind).
+
+If you want to replicate this, start with [Part 1](../soil-moisture-exporter) for the hardware and sensor how-to's, then come back here and follow [How to configure the OpenTelemetry Collector for Grafana Cloud](../how-to-configure-otel-collector-grafana-cloud) to get readings flowing into your dashboard.
 
 Never kill a house plant again! (Unless you now over-water them….)
