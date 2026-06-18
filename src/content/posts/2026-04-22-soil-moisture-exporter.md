@@ -13,7 +13,7 @@ tags:
 ---
 
 >
-> <img src="https://www.notion.so/icons/tulip_green.svg" alt="https://www.notion.so/icons/tulip_green.svg" width="40px" /> My fake plants died because I did not pretend to water them.
+> <img src="https://www.notion.so/icons/tulip_green.svg" alt="tulip_green" width="40px" /> My fake plants died because I did not pretend to water them.
 >
 
 And when it comes to real house plants mine tend to err on the side of death too. I can’t seem to get the balance right between not watering the plants around the house and then over-watering them when I realise that they’ve been neglected for a little while. 
@@ -52,20 +52,14 @@ I specifically used an [ESP8266 NodeMCU](https://www.amazon.co.uk/dp/B0CH9G6R6S?
 **Battery -** The battery is just a simple portable power bank that you’d normally use to charge a phone or other device. The first one I tried was a 20,000mAh Li-Po one from Ansmann, however when the ESP8266 went into deep sleep mode, more on that later, the battery also stopped providing power and therefore the board was unable to wake up, I switched to a smaller cheap 10,400mAh Li-ion battery and that didn’t have the same problem. 
 
 > 
-> <img src="https://www.notion.so/icons/report_yellow.svg" alt="https://www.notion.so/icons/report_yellow.svg" width="40px" /> You may have to experiment with the battery setup to find one that provides enough power and handles when the ESP8266 sleeps
-
+> You may have to experiment with the battery setup to find one that provides enough power and handles when the ESP8266 sleeps
+>
 
 **Wires -** I just needed a few jumper wires, 3 male-to-female for connecting the sensor to the GPIO pins, and 1 female-to-female for connecting the GPIO pins to allow the deep sleep to work.
 
 ## Setup
 
 The setup was fairly straightforward, it was a case of connecting the ESP8266 to the moisture sensor and taking a few calibrating readings (see [How to read soil moisture with an ESP8266](../how-to-soil-moisture-sensor-esp8266)). The readings are used to work out what the sensor reads as a maximum moisture (i.e. placed in a glass of water) and a minimum (i.e. in air) this then lets you translate to how much moisture there is in the soil of the plant pot.
-
-To take your calibration readings, set it up as above and then:
-
-- Keep the sensor dry in the air and note the highest reading that is output to the serial console, this will be your `airValue` in the final sketch
-- Put the sensor in a glass of water, ensuring not to immerse it above the recommended depth
-- Take a few readings and note the lowest that is output to the serial console, this will be your `waterValue` in the final sketch
 
 Once ready to deploy the sensor to its final location I connected the power pack via the micro USB connector. A final female-to-female jumper wire is used to connect the `RST` and `D0` GPIO pins on the ESP8266, this enables to board to be woken from deep sleep (see below and [How to configure deep sleep with timed wakeup on an ESP8266](../how-to-configure-deep-sleep-esp8266)). I currently have two sensors set up, one is not near a socket, hence the power pack, however the other is and so can be plugged in directly, this is more reliable as it doesn't require the power pack to be charged every week or so. The alerts that I set up do notify me when the battery powered one stops reporting that it is alive so I at least know when it needs charging. (See [Part 2](../soil-moisture-exporter-pt2) for setting up the alerts)
 

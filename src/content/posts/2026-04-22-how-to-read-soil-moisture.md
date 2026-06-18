@@ -57,4 +57,42 @@ In the Arduino IDE create a sketch with the following:
     
 - Upload the sketch to the ESP and it’ll run.
 
-The serial monitor will print out the moisture reading every half a second. This is a value that represents how much moisture the sensor is detecting. 
+The serial monitor will print out the moisture reading every half a second. This is a value that represents how much moisture the sensor is detecting.
+
+To take your calibration readings in order to know when the soil is dry vs wet, set it up as above and then:
+
+- Keep the sensor dry in the air and note the highest reading that is output to the serial console, this will be your `airValue` in the final sketch
+- Put the sensor in a glass of water, ensuring not to immerse it above the recommended depth
+- Take a few readings and note the lowest that is output to the serial console, this will be your `waterValue` in the final sketch
+
+### Reading Moisture as a Percentage
+
+With those two values you can convert a raw reading into a 0-100 moisture percentage. Update your sketch to use them:
+
+```c
+const int airValue = 622; // Replace with your reading
+const int waterValue = 215; // Replace with your reading
+
+double readInput() {
+	double average = analogRead(A0);
+	double moisture = 100 - ((average - waterValue) / (airValue - waterValue) * 100);
+	if (moisture <= 0) {
+		return 0;
+	}
+	if (moisture >= 100) {
+		return 100;
+	}
+	return moisture;
+}
+
+void setup() {
+	Serial.begin(9600);
+}
+
+void loop() {
+	Serial.print(readInput());
+	delay(500);
+}
+```
+
+Upload the sketch and the serial monitor will print a value between 0 (dry) and 100 (saturated) every half second. That's your soil moisture reading.
