@@ -86,6 +86,8 @@ To wake it up either:
 - It will wake itself up after a predefined period of time; or
 - You press the RST button to restart the ESP8266
 
+This works because the RST pin is always HIGH, when it receives a LOW signal it triggers the ESP8266 to restart therefore waking it from sleep. When you set the deep sleep timer, when it gets to the end, `GPIO 16` (`D0`) sends a LOW signal which triggers the wakeup.
+
 The ESP8266 has a maximum time it can deep sleep for, about 3.5 hours, beyond that it’s not likely to wake up. I experimented with setting various durations for the deep sleep up to the reported 3.5 hours maximum, however times over about an hour seemed to result in it not waking up. I found that 30 minutes worked consistently and the battery would last about a week with it waking up to take readings.  
 
 ## Conclusion

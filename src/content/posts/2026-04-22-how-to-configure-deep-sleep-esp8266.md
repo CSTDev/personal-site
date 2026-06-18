@@ -38,12 +38,10 @@ To wake it up either:
 
 2. Once the sketch has been written to the ESP8266 - connect the `RST` and `D0` pins.
 3. You should see you sketch's setup output on the serial monitor each time the board wakes.
- 
-This works because the RST pin is always HIGH, when it receives a LOW signal it triggers the ESP8266 to restart therefore waking it from sleep. When you set the deep sleep timer, when it gets to the end, `GPIO 16` (`D0`) sends a LOW signal which triggers the wakeup.
 
 >
 > ⏰
-> The ESP8266 has a maximum time it can deep sleep for, about 3.5 hours, beyond that it’s not likely to wake up.
+> The ESP8266 has a maximum time it can deep sleep for, about 3.5 hours, beyond that it’s not likely to wake up. In practice, durations over about an hour became unreliable - see the [Soil Moisture Exporter](./soil-moisture-exporter) build post for why 30 minutes is what's actually used.
 >
 
 ### Manual Wakeup
