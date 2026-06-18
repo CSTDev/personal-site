@@ -33,6 +33,8 @@ Connect the provided wires using the jumper wires. Ensure that the following lin
 2. The `VCC` on the sensor is connected to the `5V` GPIO pin
 3. The `AOUT` on the sensor is connected to the `A0` GPIO pin.
 
+![Wiring diagram showing the ESP8266 NodeMCU GND, 5V and A0 pins connected to the soil moisture sensor's GND, VCC and AOUT pins](/assets/soil-moisture-sensor-wiring.svg)
+
 The wiring is now complete, but to see anything you will need to deploy some code to the ESP8266.
 
 
