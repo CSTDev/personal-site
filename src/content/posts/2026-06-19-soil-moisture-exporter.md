@@ -61,7 +61,7 @@ I specifically used an [ESP8266 NodeMCU](https://www.amazon.co.uk/dp/B0CH9G6R6S?
 
 The setup was fairly straightforward, it was a case of connecting the ESP8266 to the moisture sensor and taking a few calibrating readings (see [How to read soil moisture with an ESP8266](../how-to-soil-moisture-sensor-esp8266)). The readings are used to work out what the sensor reads as a maximum moisture (i.e. placed in a glass of water) and a minimum (i.e. in air) this then lets you translate to how much moisture there is in the soil of the plant pot.
 
-Once ready to deploy the sensor to its final location I connected the power pack via the micro USB connector. A final female-to-female jumper wire is used to connect the `RST` and `D0` GPIO pins on the ESP8266, this enables to board to be woken from deep sleep (see below and [How to configure deep sleep with timed wakeup on an ESP8266](../how-to-configure-deep-sleep-esp8266)). I currently have two sensors set up, one is not near a socket, hence the power pack, however the other is and so can be plugged in directly, this is more reliable as it doesn't require the power pack to be charged every week or so. The alerts that I set up do notify me when the battery powered one stops reporting that it is alive so I at least know when it needs charging. (See [Part 2](../soil-moisture-exporter-pt2) for setting up the alerts)
+Once ready to deploy the sensor to its final location I connected the power pack via the micro USB connector. A final female-to-female jumper wire is used to connect the `RST` and `D0` GPIO pins on the ESP8266, this enables the board to be woken from deep sleep (see below and [How to configure deep sleep with timed wakeup on an ESP8266](../how-to-configure-deep-sleep-esp8266)). I currently have two sensors set up, one is not near a socket, hence the power pack, however the other is and so can be plugged in directly, this is more reliable as it doesn't require the power pack to be charged every week or so. The alerts that I set up do notify me when the battery powered one stops reporting that it is alive so I at least know when it needs charging. (See [Part 2](../soil-moisture-exporter-pt2) for setting up the alerts)
 
 
 ### Connecting to MQTT
@@ -72,8 +72,8 @@ My MQTT broker of choice for this project is [HiveMQ](https://www.hivemq.com/) a
 Their free tier includes:
 
 - 100 connections - we'll have one per sensor so unlikely to hit!
-- 10GB/Month - each message we send is about 40 bytes, so we're only sending approximatley 55Kb per sensor per month.
-- There's no uptime SLA - but this isnt a crital system really, is it.
+- 10GB/Month - each message we send is about 40 bytes, so we're only sending approximately 55Kb per sensor per month.
+- There's no uptime SLA - but this isn't a critical system really, is it.
  
 There are a number of alternatives or you could host your own broker which would keep all your data local and would mean we can set up and use our own certificates, however for the speed of getting the main thing built, the moisture sensor, we'll stick with HiveMQ. Maybe one for another time! For the setup to connect to HiveMQ from an ESP8266 follow [How to send to a MQTT broker from an ESP8266](../how-to-send-mqtt-esp8266)
 

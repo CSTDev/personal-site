@@ -22,7 +22,7 @@ const NotFound = () => (
         />
         <h1>Oops we did not expect that to happen</h1>
         <p>
-          Have you wondered into the unknow. Let us help you, Please take a look
+          Have you wandered into the unknown? Let us help you, Please take a look
           at below options
         </p>
       </header>

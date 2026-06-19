@@ -19,9 +19,9 @@ Now we’ve got the sensor up and running, taking readings on a regular basis an
 ## Message Processing
 
 Originally I wrote all the readings to a SQLite database and then build a simple UI that rendered a graph, it was templated HTML served by a Go service, the trouble with this was the way I wrote it older readings were never aged off so the graph axis got more and more congested as new readings were rendered.
-I did alternatively look at using a javascript graphing library to create some nice graphs however that invloved more frontend code than I wanted to write for this project. 
+I did alternatively look at using a javascript graphing library to create some nice graphs, however that involved more frontend code than I wanted to write for this project. 
 I’ve since moved on to a simple service written in Go which takes the readings from MQTT and exposes them as [Prometheus](https://prometheus.io/docs/introduction/overview/) metrics. 
-These are then read in turn by a collector and sent to [Grafana cloud](https://grafana.com/products/cloud/) which is free at this scale and lets us create graphs from the readings that are taken, it also had built in alerting capability so we can be notified when the plants need watering.
+These are then read in turn by a collector and sent to [Grafana cloud](https://grafana.com/products/cloud/) which is free at this scale and lets us create graphs from the readings that are taken, it also has built-in alerting capability so we can be notified when the plants need watering.
 
 The messages we send (and therefore receive) look like this:
 
@@ -35,7 +35,7 @@ The full code for the service can be found here: https://github.com/CSTDev/soil-
 
 You may notice that the service calls out to a database to find the `Threshold` for each sensor based on the name in the reading it received. This allows us to create a metric that resolves to a simple true or false when asked, “is the moisture below X” where that value is what I’ve guess-timated is a health number for that plant.
 
-This is totally optional as we can just use alert rules in grafana to specify the value below which to alert us, I’ll come to that later. The case against just using alert rules is as the number of sensors grow we’d have to configure a second datasource to map different thresholds for different sensors.
+This is totally optional as we can just use alert rules in Grafana to specify the value below which to alert us, I’ll come to that later. The case against just using alert rules is as the number of sensors grow we’d have to configure a second datasource to map different thresholds for different sensors.
 
 The threshold is stored in an SQLite database that runs alongside the service that reads the metrics. 
 
@@ -91,7 +91,7 @@ Once you’re in and using Grafana Cloud there are two things you’ll need to f
 1. Authentication user/password
 2. The Prometheus endpoint to send metrics to.
 
-This how to will help you find them if you need: [How to configure the OpenTelemetry Collector for Grafana Cloud](./how-to-configure-otel-collector-grafana-cloud)
+This how to will help you find them if you need: [How to configure the OpenTelemetry Collector for Grafana Cloud](../how-to-configure-otel-collector-grafana-cloud)
 
 ### Dashboards
 
