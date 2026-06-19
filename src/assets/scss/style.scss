@@ -97,12 +97,22 @@
   a {
     color: #fff;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     &:hover {
       color: #fff;
     }
   }
+  .site-logo-image {
+    height: 48px;
+    width: auto;
+  }
   @media (max-width: $breakpoint-lg) {
     font-size: 20px;
+    .site-logo-image {
+      height: 38px;
+    }
   }
 }
 .home-banner {
@@ -243,6 +253,14 @@ article img {
   padding: 20px;
   line-height: 1.5;
   font-size: 20px;
+
+  a {
+    color: var(--post-link-color);
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .blog-post {
@@ -251,6 +269,8 @@ article img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-height: 450px;
+    overflow: hidden;
   }
 }
 // Buttons

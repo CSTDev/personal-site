@@ -1,0 +1,50 @@
+<svg width="720" height="380" viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="720" height="380" fill="#ffffff"/>
+
+  <!-- ESP8266 NodeMCU board -->
+  <rect x="40" y="60" width="200" height="260" rx="8" fill="#1b5e20" stroke="#0d3d12" stroke-width="2"/>
+  <text x="140" y="40" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">ESP8266 NodeMCU</text>
+
+  <!-- USB connector hint -->
+  <rect x="120" y="48" width="40" height="14" fill="#888"/>
+
+  <!-- Pin labels + pads on the board's right edge -->
+  <circle cx="240" cy="120" r="6" fill="#222"/>
+  <text x="220" y="116" text-anchor="end" font-size="16" fill="#fff">GND</text>
+
+  <circle cx="240" cy="190" r="6" fill="#222"/>
+  <text x="220" y="186" text-anchor="end" font-size="16" fill="#fff">5V (VU)</text>
+
+  <circle cx="240" cy="260" r="6" fill="#222"/>
+  <text x="220" y="256" text-anchor="end" font-size="16" fill="#fff">A0</text>
+
+  <!-- Capacitive soil moisture sensor -->
+  <rect x="480" y="100" width="200" height="120" rx="8" fill="#2e7d32" stroke="#0d3d12" stroke-width="2"/>
+  <text x="580" y="80" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Soil Moisture Sensor</text>
+
+  <!-- Sensor pins on its left edge -->
+  <circle cx="480" cy="120" r="6" fill="#222"/>
+  <text x="500" y="116" font-size="16" fill="#fff">GND</text>
+
+  <circle cx="480" cy="160" r="6" fill="#222"/>
+  <text x="500" y="156" font-size="16" fill="#fff">VCC</text>
+
+  <circle cx="480" cy="200" r="6" fill="#222"/>
+  <text x="500" y="196" font-size="16" fill="#fff">AOUT</text>
+
+  <!-- Wires -->
+  <!-- GND to GND -->
+  <path d="M240,120 C 340,120 380,120 480,120" fill="none" stroke="#000000" stroke-width="3"/>
+  <text x="360" y="108" text-anchor="middle" font-size="14" fill="#000">GND → GND</text>
+
+  <!-- 5V to VCC -->
+  <path d="M240,190 C 340,190 380,160 480,160" fill="none" stroke="#c62828" stroke-width="3"/>
+  <text x="360" y="178" text-anchor="middle" font-size="14" fill="#c62828">5V (VU) → VCC</text>
+
+  <!-- A0 to AOUT -->
+  <path d="M240,260 C 340,260 380,200 480,200" fill="none" stroke="#1565c0" stroke-width="3"/>
+  <text x="360" y="248" text-anchor="middle" font-size="14" fill="#1565c0">A0 → AOUT</text>
+
+  <!-- Legend -->
+  <text x="40" y="350" font-size="13" fill="#444">Jumper wires: 3x male-to-female (GND, VCC, AOUT). Board and sensor not to scale.</text>
+</svg>
