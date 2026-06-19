@@ -1,19 +1,19 @@
 ---
 template: blog-post
 title: How to setup the Arduino IDE for ESP8266 development
-slug: /how-to-soil-moisture-sensor-arduino-ide
+slug: /how-to-setup-arduino-ide-for-esp8266
 date: 2026-04-22 10:00
 description: How to setup the Arduino IDE for ESP8266 development
 featuredImage: /assets/nizzah-khusnunnisa-1ZlfGq1PGJc-unsplash.jpg
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - how-to
   - arduino
 ---
 
-This guide walks you through installing the Arduino IDE and configuring it to program an ESP8266 NodeMCU board. To program the board you can connect a micro USB to USB wire to plug the board into the computer. This guide is part of the [Soil Moisture Exporter](./soil-moisture-exporter) series.
+This _How To_ walks you through installing the Arduino IDE and configuring it to program an ESP8266 NodeMCU board. To program the board you can connect a micro USB to USB wire to plug the board into the computer. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ featuredImage: /assets/vadim-kaipov-8ZELrodSvTc-unsplash.jpg
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - build-narrative
 ---
 
@@ -18,7 +18,7 @@ tags:
 
 And when it comes to real house plants mine tend to err on the side of death too. I can’t seem to get the balance right between not watering the plants around the house and then over-watering them when I realise that they’ve been neglected for a little while. 
 
-I do however have slightly more success with the seedlings I start inside but again the watering is more of a “when I remember it” than a science. 
+I do however have slightly more success with the seedlings that I start inside but again the watering is more of a “when I remember it” than a science. 
 
 Rather than be consistent for either I decided why not get a sensor to measure the moisture level of the soil and let me know when it needs watering! 
 
@@ -26,7 +26,7 @@ This post goes through what I set up and why with links out to various How-To gu
 
 ## The Plan
 
-This post will take you through the overview of how I get alerts sent to me via Slack when my house plants need watering. If you want to build it yourself then follow through the guides in the How-To section.
+This post and part 2 will take you through the overview of how I get alerts sent to me via Slack when my house plants need watering. If you want to build it yourself then follow through the guides in the How-To section.
 
 The setup I envisioned was to have a moisture sensor attached to a small board that has some WiFi capability running off a battery. It’ll send through readings at regular intervals to an MQTT broker and if those fall below a given threshold I’ll send a notification to myself and then go water the plant in question.
 
@@ -34,7 +34,7 @@ The setup I envisioned was to have a moisture sensor attached to a small board t
 
 If you want to replicate this build here are the relevant guides for the more specific parts of the setup, I'll also link to them at the relevant points through the article.
 
-- [How to setup the Arduino IDE for ESP8266 development](../how-to-soil-moisture-sensor-arduino-ide)
+- [How to setup the Arduino IDE for ESP8266 development](../how-to-setup-arduino-ide-for-esp8266)
 - [How to read soil moisture with an ESP8266](../how-to-soil-moisture-sensor-esp8266)
 - [How to send messages to HiveMQ (MQTT) from an ESP8266](../how-to-send-mqtt-esp8266)
 - [How to configure deep sleep with timed wakeup on an ESP8266](../how-to-configure-deep-sleep-esp8266)

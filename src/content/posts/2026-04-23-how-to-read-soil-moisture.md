@@ -8,11 +8,11 @@ featuredImage: /assets/markus-spiske-sFydXGrt5OA-unsplash.jpg
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - how-to
 ---
 
-This how-to covers how to connect a capacitive soil moisture sensor to an ESP8266 NodeMCU board to enable you to take readings. This guide is part of the [Soil Moisture Exporter](./soil-moisture-exporter) series.
+This _How To_ covers how to connect a capacitive soil moisture sensor to an ESP8266 NodeMCU board to enable you to take readings. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ This how-to covers how to connect a capacitive soil moisture sensor to an ESP826
 - A [capacitive soil moisture sensor](https://thepihut.com/products/capacitive-soil-moisture-sensor)
 - 3 male-to-female jumper wires
 - 1 female-to-female jumper wire
-- Arduino IDE setup with ESP8266 support - see [this How-To](./how-to-soil-moisture-sensor-arduino-ide)
+- Arduino IDE setup with ESP8266 support - see [this How-To](../how-to-setup-arduino-ide-for-esp8266)
 
 
 ## Steps

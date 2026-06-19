@@ -8,17 +8,17 @@ featuredImage: /assets/mqtt-esp8266_Image_o6pw6to6pw6to6pw.png
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - how-to
-  - mqtt
+  - MQTT
 ---
 
-This _How To_ takes you through connecting to WiFi and sending messages to a MQTT broker using TLS. This guide is part of the [Soil Moisture Exporter](./soil-moisture-exporter) series.
+This _How To_ takes you through connecting to WiFi and sending messages to a MQTT broker using TLS. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
 
 ## Prerequisites
 
 - An ESP8266
-- Arduino IDE set up and able to deploy to the ESP8266 (see [How to setup the Arduino IDE for ESP8266 development](../how-to-soil-moisture-sensor-arduino-ide))
+- Arduino IDE set up and able to deploy to the ESP8266 (see [How to setup the Arduino IDE for ESP8266 development](../how-to-setup-arduino-ide-for-esp8266))
 - HiveMQ account
 
 ## Connecting WiFi

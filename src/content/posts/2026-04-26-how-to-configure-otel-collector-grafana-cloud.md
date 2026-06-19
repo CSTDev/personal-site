@@ -8,12 +8,12 @@ featuredImage: /assets/otel_grafana_Image_yb28i2yb28i2yb28.png
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - how-to
   - otel
 ---
 
-This _How To_ takes you through configuring the OpenTelemetry (otel) collector to read metrics and export to Grafana cloud using cloud provided credentials.
+This _How To_ takes you through configuring the OpenTelemetry (otel) collector to read metrics and export to Grafana cloud using cloud provided credentials. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
 
 ### Prerequisites
 
@@ -33,7 +33,7 @@ To authenticate you’ll use a token associated with your Grafana Cloud instance
 
 The config for the OTel collector should be:
 
-Update `soilconsumer:2112` to match your own exporter's hostname and port.
+**Note:** Update `soilconsumer:2112` to match your own exporter's hostname and port.
 
 ```yaml
 ---

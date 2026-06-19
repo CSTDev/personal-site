@@ -8,13 +8,15 @@ featuredImage: /assets/esp8266_sleeping_Image_dsxjtydsxjtydsxj.png
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - how-to
 ---
 
+This _How To_ covers how to configure deep sleep on an ESP8266 NodeMCU board. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
+
 ## Deep Sleep
 
-The ESP8266 has the ability to do what is referred to as **DeepSleep** this reduces what the board is doing to run nothing but the real time clock (RTC) which allows it to track the time it’s been asleep. This guide is part of the [Soil Moisture Exporter](./soil-moisture-exporter) series.
+The ESP8266 has the ability to do what is referred to as **DeepSleep**, this reduces what the board is doing to run nothing but the real time clock (RTC) which allows it to track the time it’s been asleep. This guide is part of the [Soil Moisture Exporter](../soil-moisture-exporter) series.
 
 To wake it up either:
 
@@ -41,7 +43,7 @@ To wake it up either:
 
 >
 > ⏰
-> The ESP8266 has a maximum time it can deep sleep for, about 3.5 hours, beyond that it’s not likely to wake up. In practice, durations over about an hour became unreliable - see the [Soil Moisture Exporter](./soil-moisture-exporter) build post for why 30 minutes is what's actually used.
+> The ESP8266 has a maximum time it can deep sleep for, about 3.5 hours, beyond that it’s not likely to wake up. In practice, durations over about an hour became unreliable - see the [Soil Moisture Exporter](../soil-moisture-exporter) build post for why 30 minutes is what's actually used.
 >
 
 ### Manual Wakeup

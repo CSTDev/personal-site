@@ -8,7 +8,7 @@ featuredImage: /assets/plant-monitoring_ijazlwijazlwijaz.png
 featured: false
 tags:
   - IOT
-  - soil-alerter
+  - plant-monitoring
   - build-narrative
 ---
 
@@ -33,7 +33,7 @@ The full code for the service can be found here: https://github.com/CSTDev/soil-
 
 ## Setting Thresholds
 
-You may notice that the service calls out to a database to find the `Threshold` for each sensor based on the name in the reading it received. This allows us to create a metric that resolves to a simple true or false when asked, “is the moisture below X” where that value is what I’ve guess-timated is a health number for that plant.
+You may notice that the service calls out to a database to find the `Threshold` for each sensor based on the name in the reading it received. This allows us to create a metric that resolves to a simple true or false when asked, “is the moisture below X” where that value is what I’ve guess-timated is a healthy number for that plant.
 
 This is totally optional as we can just use alert rules in Grafana to specify the value below which to alert us, I’ll come to that later. The case against just using alert rules is as the number of sensors grow we’d have to configure a second datasource to map different thresholds for different sensors.
 
@@ -91,7 +91,7 @@ Once you’re in and using Grafana Cloud there are two things you’ll need to f
 1. Authentication user/password
 2. The Prometheus endpoint to send metrics to.
 
-This how to will help you find them if you need: [How to configure the OpenTelemetry Collector for Grafana Cloud](../how-to-configure-otel-collector-grafana-cloud)
+This How To will help you find them if you need: [How to configure the OpenTelemetry Collector for Grafana Cloud](../how-to-configure-otel-collector-grafana-cloud)
 
 ### Dashboards
 
@@ -101,7 +101,7 @@ Once you’ve got the credentials you need and the endpoint and have updated you
 2. Soil Moisture - a running graph of the last moisture percentage received
 3. Component Liveness - monitors when the last measurement was received from a sensor, and that the heartbeat from exporter is received
 
-![soil-moisture-dashboard.png](soil-moisture-dashboard.png)
+![soil-moisture-dashboard.png](../assets/soil-moisture-dashboard.png)
 
 The dashboard is available in the Github repository, so you can just go to Dashboards → New → Import Dashboard. 
 
