@@ -66,8 +66,17 @@ The `id` must match the `name` field in the MQTT payload published by the ESP826
 
 Once the service is running and reading messages from MQTT it exposes metrics that look something like this:
 
-```sql
-TODO: Sample metrics
+```bash
+...
+# HELP moisture_below_threshold Is the moisture level below the threshold
+# TYPE moisture_below_threshold gauge
+moisture_below_threshold{sensor="orangeTree"} 0
+moisture_below_threshold{sensor="seedlings"} 0
+# HELP moisture_percentage Current moisture level
+# TYPE moisture_percentage gauge
+moisture_percentage{sensor="orangeTree"} 78.61
+moisture_percentage{sensor="seedlings"} 68.3
+...
 ```
 
 These can be scraped by any prometheus compatible scraper. For this project we use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/), it runs as a separate container alongside the soil moisture exporter and has been configured to read the metrics and send them to Mimir in Grafana Cloud. To setup the OTLP collector follow this [How to configure the OpenTelemetry Collector for Grafana Cloud](../how-to-configure-otel-collector-grafana-cloud)
