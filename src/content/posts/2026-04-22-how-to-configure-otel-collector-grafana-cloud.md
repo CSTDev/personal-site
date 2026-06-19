@@ -4,7 +4,7 @@ title: How to configure the OpenTelemetry Collector for Grafana Cloud
 slug: /how-to-configure-otel-collector-grafana-cloud
 date: 2026-04-22 10:00
 description: How to configure the OpenTelemetry Collector to scrape Prometheus metrics and send them to Grafana Cloud, including authentication setup
-featuredImage: /assets/nginx-padlock.png
+featuredImage: /assets/otel_grafana_Image_yb28i2yb28i2yb28.png
 featured: false
 tags:
   - IOT

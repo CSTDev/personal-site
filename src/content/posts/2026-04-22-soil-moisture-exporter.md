@@ -4,7 +4,7 @@ title: Monitoring house plants for when they need watering
 slug: /soil-moisture-exporter
 date: 2026-04-22 10:00
 description: A description of how and why I get alerts when my house plants need watering
-featuredImage: /assets/nginx-padlock.png
+featuredImage: /assets/vadim-kaipov-8ZELrodSvTc-unsplash.jpg
 featured: false
 tags:
   - IOT

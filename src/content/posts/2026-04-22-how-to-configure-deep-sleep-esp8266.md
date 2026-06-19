@@ -4,7 +4,7 @@ title: How to configure deep sleep on an ESP8266
 slug: /how-to-configure-deep-sleep-esp8266
 date: 2026-04-22 10:00
 description: How to configure deep sleep on an ESP8266
-featuredImage: /assets/nginx-padlock.png
+featuredImage: /assets/esp8266_sleeping_Image_dsxjtydsxjtydsxj.png
 featured: false
 tags:
   - IOT

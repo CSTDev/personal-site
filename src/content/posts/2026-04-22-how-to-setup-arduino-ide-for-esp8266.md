@@ -4,7 +4,7 @@ title: How to setup the Arduino IDE for ESP8266 development
 slug: /how-to-soil-moisture-sensor-arduino-ide
 date: 2026-04-22 10:00
 description: How to setup the Arduino IDE for ESP8266 development
-featuredImage: /assets/nginx-padlock.png
+featuredImage: /assets/nizzah-khusnunnisa-1ZlfGq1PGJc-unsplash.jpg
 featured: false
 tags:
   - IOT

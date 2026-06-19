@@ -4,7 +4,7 @@ title: How to read soil moisture with an ESP8266
 slug: /how-to-soil-moisture-sensor-esp8266
 date: 2026-04-22 10:00
 description: How to read soil moisture with an ESP8266
-featuredImage: /assets/nginx-padlock.png
+featuredImage: /assets/markus-spiske-sFydXGrt5OA-unsplash.jpg
 featured: false
 tags:
   - IOT
