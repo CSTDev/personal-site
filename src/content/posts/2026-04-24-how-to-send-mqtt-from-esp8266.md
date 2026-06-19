@@ -2,7 +2,7 @@
 template: blog-post
 title: How to send MQTT messages to HiveMQ from an ESP8266
 slug: /how-to-send-mqtt-esp8266
-date: 2026-04-22 10:00
+date: 2026-04-24 10:00
 description: How to send MQTT messages from an ESP8266 to HiveMQ cloud broker
 featuredImage: /assets/mqtt-esp8266_Image_o6pw6to6pw6to6pw.png
 featured: false

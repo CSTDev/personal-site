@@ -2,7 +2,7 @@
 template: blog-post
 title: Monitoring house plants for when they need watering - Part 2
 slug: /soil-moisture-exporter-pt2
-date: 2026-04-22 11:00
+date: 2026-06-19 11:00
 description: Part 2 - processing MQTT messages, exposing Prometheus metrics, and setting up Grafana dashboards and alerts
 featuredImage: /assets/plant-monitoring_ijazlwijazlwijaz.png
 featured: false
