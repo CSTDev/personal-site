@@ -145,7 +145,7 @@ export const pageQuery = graphql`
         tags
         featuredImage {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 1.7)
           }
         }
       }
